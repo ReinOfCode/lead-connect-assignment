@@ -1,4 +1,9 @@
+import {
+  getSessionStorage,
+  setSessionStorage,
+} from "handler/sessionStoragedata";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { CONTEXT_STATE } from "scripts/constants";
 import { getInitialState, reducer } from "./actions";
 
 const initialState = getInitialState();
@@ -23,7 +28,10 @@ const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    console.log("state changed");
+    if (
+      JSON.stringify(getSessionStorage(CONTEXT_STATE)) !== JSON.stringify(state)
+    )
+      setSessionStorage(CONTEXT_STATE, state);
   }, [state]);
 
   return (
