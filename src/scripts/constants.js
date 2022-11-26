@@ -1,5 +1,9 @@
 export const CART_PAGE = "/cart-page";
-export const LANDING_PAGE = "/";
-export const GET = "GET";
-export const POST = "POST";
+export const CONTEXT_STATE = "contextState";
+export const DECREMENT_CART_COUNT = "decrementCartCount";
 export const DELETE = "DELETE";
+export const GENERATE_USER_ID = "generateUserId";
+export const GET = "GET";
+export const INCREASE_CART_COUNT = "incrementCartCount";
+export const LANDING_PAGE = "/";
+export const POST = "POST";
