@@ -9,11 +9,9 @@ import {
   ADD_PRODUCT_TO_CART,
   CART_PRODUCT,
   CONTEXT_STATE,
-  DECREMENT_CART_COUNT,
   DELETE,
   GENERATE_USER_ID,
   GET,
-  INCREASE_CART_COUNT,
 } from "scripts/constants";
 
 export const initialState = {
@@ -24,10 +22,6 @@ export const initialState = {
 export const reducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
-    case INCREASE_CART_COUNT:
-      return { ...state, cartCount: state.cartCount + 1 };
-    case DECREMENT_CART_COUNT:
-      return { ...state, cartCount: state.cartCount - 1 };
     case GENERATE_USER_ID:
       return { ...state, id: Math.floor(Math.random() * 10) };
     case ADD_PRODUCT_TO_CART:
@@ -51,7 +45,6 @@ export const addProductToCart = (dispatch, data) => {
         endPoint: GET_ALL_CART_PRODUCTS,
         body: data.id,
       });
-      dispatch({ type: INCREASE_CART_COUNT });
       dispatch({ type: ADD_PRODUCT_TO_CART, payload: data });
       resolve(res);
     } catch (error) {
@@ -69,7 +62,6 @@ export const removeProductFromCart = (dispatch, id) => {
         method: DELETE,
       });
       resolve(res);
-      dispatch({ type: INCREASE_CART_COUNT });
       return res;
     } catch (error) {
       reject(error);
