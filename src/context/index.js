@@ -1,9 +1,7 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { getInitialState, reducer } from "./actions";
 
-const reducer = () => {};
-const initialState = {
-  cartCount: 0,
-};
+const initialState = getInitialState();
 
 const userStateContext = createContext(undefined);
 const userDispatchContext = createContext(undefined);
@@ -23,6 +21,11 @@ export const useUserDispatch = () => {
 // userProvider
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    console.log("state changed");
+  }, [state]);
+
   return (
     <userStateContext.Provider value={state}>
       <userDispatchContext.Provider value={dispatch}>
