@@ -13,8 +13,6 @@ function LandingPage() {
     });
   }, []);
 
-  console.log(productData);
-
   return (
     isValidArray(productData) && (
       <div className={styles["product-main"]}>
