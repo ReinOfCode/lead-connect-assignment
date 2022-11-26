@@ -4,7 +4,7 @@ import Header from "./Header";
 function BasicLayout({ children }) {
   return (
     <>
-      <div className="container">
+      <div>
         <Header />
         {children}
         <Footer />
