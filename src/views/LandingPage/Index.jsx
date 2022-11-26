@@ -28,7 +28,15 @@ function LandingPage() {
           } = data;
           return (
             <Fragment key={id}>
-              <Cards image={image} title={title} price={price} rating={rate} />
+              <Cards
+                image={image}
+                title={title}
+                price={price}
+                rating={rate}
+                description={description}
+                category={category}
+                id={id}
+              />
             </Fragment>
           );
         })}
