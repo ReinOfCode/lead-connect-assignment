@@ -1,16 +1,18 @@
-import { useUserState } from "context";
+import { useUserDispatch, useUserState } from "context";
+import { removeProductFromCart } from "context/actions";
 import { isValidArray } from "handler/isValidArray";
 import styles from "styles/CartPage.module.scss";
 
 function CartPage() {
   const { cartProduct } = useUserState();
+  const dispatch = useUserDispatch();
 
   const getTotalPrice = cartProduct.reduce((acc, prev) => acc + prev.price, 0);
 
   return isValidArray(cartProduct) ? (
     <div className={styles["cart-main"]}>
-      {cartProduct.map((v) => {
-        const { id, title, price, description, category, image } = v;
+      {cartProduct.map((product) => {
+        const { id, title, price, description, category, image } = product;
         return (
           <div key={id} className={styles["cart-card"]}>
             <div className={styles["product-image"]}>
@@ -21,10 +23,15 @@ function CartPage() {
               <h5>{description}</h5>
               <div className={styles["price-section"]}>
                 <h3>Price : {price}</h3>
-                <p>Remove From Cart</p>
+                <p
+                  onClick={() => {
+                    removeProductFromCart(dispatch, product);
+                  }}
+                >
+                  Remove From Cart
+                </p>
               </div>
             </div>
-            <div className={styles["remove-icon"]}></div>
           </div>
         );
       })}
