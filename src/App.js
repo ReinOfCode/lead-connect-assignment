@@ -1,7 +1,7 @@
 import BasicLayout from "component/common/layout/BasicLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartPage from "views/CartPage";
-import LandingPage from "views/LandingPage/Index";
+import LandingPage from "views/LandingPage";
 
 function App() {
   return (

@@ -1,5 +1,14 @@
+import Cards from "component/common/Cards";
+import styles from "styles/LandingPage.module.scss";
+
 function LandingPage() {
-  return <h1>Landing Pages</h1>;
+  return (
+    <div className={styles["product-main"]}>
+      {[...Array(10).keys()].map((v) => {
+        return <Cards />;
+      })}
+    </div>
+  );
 }
 
 export default LandingPage;
