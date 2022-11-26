@@ -1,0 +1,25 @@
+.card-main {
+  padding: 10px 20px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+  .card-image {
+    border-bottom: 1px solid black;
+    text-align: center;
+  }
+  .card-title {
+    p {
+      text-align: center;
+    }
+  }
+
+  .card-rating-and-amount {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    // product-rating {
+    // }
+    .product-amount {
+    }
+  }
+}
