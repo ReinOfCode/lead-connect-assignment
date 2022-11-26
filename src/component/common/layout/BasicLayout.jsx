@@ -16,7 +16,7 @@ function BasicLayout({ children }) {
 
   return (
     <>
-      <div>
+      <div className="container">
         <Header />
         {children}
         <Footer />
