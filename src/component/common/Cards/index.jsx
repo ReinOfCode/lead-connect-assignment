@@ -1,17 +1,22 @@
+import { useUserDispatch, useUserState } from "context";
+import { addProductToCart } from "context/actions";
 import React from "react";
-import { renderMatches } from "react-router-dom";
+import { CART_PRODUCT } from "scripts/constants";
 import styles from "styles/Cards.module.scss";
 
-function Cards({
-  image = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  title = "Nourish rajma dal",
-  rating = 3.5,
-  price = 35000,
-  id,
-}) {
+function Cards(props) {
+  const userState = useUserState();
+
+  const { image = "", title = "", rating, price, id } = props;
+  const cartItems = userState[CART_PRODUCT];
+  const isProductInCart = cartItems.find((item) => item.id === "id");
+  const userDispatch = useUserDispatch();
   const handleAddToCartClick = () => {
-    console.log("Added To Cart");
+    addProductToCart(userDispatch, props).then((res) => {
+      console.log(res);
+    });
   };
+
   return (
     <div className={styles["card-main"]}>
       <div className={styles["card-image"]}>
