@@ -1,5 +1,5 @@
 import { apiCallMethod } from "handler/apiCallMethod";
-import { getStateFromSessionStorage } from "handler/sessionStoragedata";
+import { getSessionStorage } from "handler/sessionStoragedata";
 import {
   GET_ALL_CART_PRODUCTS,
   GET_ALL_PRODUCTS,
@@ -103,7 +103,7 @@ export const getCartData = () => {
 };
 
 export const getInitialState = () => {
-  const storageState = getStateFromSessionStorage(CONTEXT_STATE);
+  const storageState = getSessionStorage(CONTEXT_STATE);
   if (storageState) {
     return JSON.parse(JSON.stringify(storageState));
   } else {

@@ -1,9 +1,9 @@
-export const setToSessionStorage = (key, value) => {
+export const setSessionStorage = (key, value) => {
   const stateStr = JSON.stringify(value);
   return sessionStorage.setItem(key, stateStr);
 };
 
-export const getStateFromSessionStorage = (key) => {
+export const getSessionStorage = (key) => {
   const data = sessionStorage.getItem(key);
   return JSON.parse(data);
 };
