@@ -1,5 +1,40 @@
+import { useUserState } from "context";
+import { isValidArray } from "handler/isValidArray";
+import styles from "styles/CartPage.module.scss";
+
 function CartPage() {
-  return <h1>Hello Cart</h1>;
+  const { cartProduct } = useUserState();
+
+  const getTotalPrice = cartProduct.reduce((acc, prev) => acc + prev.price, 0);
+
+  return isValidArray(cartProduct) ? (
+    <div className={styles["cart-main"]}>
+      {cartProduct.map((v) => {
+        const { id, title, price, description, category, image } = v;
+        return (
+          <div key={id} className={styles["cart-card"]}>
+            <div className={styles["product-image"]}>
+              <img width={250} height={250} src={image} alt={title} />
+            </div>
+            <div className={styles["product-desc"]}>
+              <h2>{title}</h2>
+              <h5>{description}</h5>
+              <div className={styles["price-section"]}>
+                <h3>Price : {price}</h3>
+                <p>Remove From Cart</p>
+              </div>
+            </div>
+            <div className={styles["remove-icon"]}></div>
+          </div>
+        );
+      })}
+      <div className={styles["total-count"]}>
+        <h4>Total Price : ₹{getTotalPrice.toFixed(2)}</h4>
+      </div>
+    </div>
+  ) : (
+    <h1>Nothing in cart</h1>
+  );
 }
 
 export default CartPage;

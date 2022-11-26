@@ -1,0 +1,49 @@
+.cart-main {
+  .cart-card {
+    background: white;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin: 15px;
+    text-align: center;
+    @media (min-width: 786px) {
+      display: flex;
+      justify-content: space-around;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 25px 35px;
+      max-width: 80%;
+    }
+    .product-desc {
+      h5 {
+        display: none;
+        @media (min-width: 786px) {
+          display: block;
+          width: 80%;
+          margin: 0 auto;
+          margin-bottom: 20px;
+        }
+      }
+      .price-section {
+        display: flex;
+        justify-content: space-between;
+        @media (min-width: 786px) {
+          justify-content: space-around;
+        }
+        p {
+          color: red;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .total-count{
+    background: red;
+    border-radius: 6px;
+    border: 2px solid white;
+    text-align: center;
+    cursor: pointer;
+    h4{
+      color: white;
+    }
+  }
+}
