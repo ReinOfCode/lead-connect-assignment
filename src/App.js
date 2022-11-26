@@ -1,5 +1,6 @@
 import BasicLayout from "component/common/layout/BasicLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CART_PAGE, LANDING_PAGE } from "scripts/constants";
 import CartPage from "views/CartPage";
 import LandingPage from "views/LandingPage";
 
@@ -8,8 +9,8 @@ function App() {
     <BasicLayout>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-          <Route path="/cart-page" element={<CartPage />}></Route>
+          <Route path={LANDING_PAGE} element={<LandingPage />}></Route>
+          <Route path={CART_PAGE} element={<CartPage />}></Route>
         </Routes>
       </BrowserRouter>
     </BasicLayout>
