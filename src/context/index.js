@@ -28,10 +28,9 @@ const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    if (
-      JSON.stringify(getSessionStorage(CONTEXT_STATE)) !== JSON.stringify(state)
-    )
+    if (getSessionStorage(CONTEXT_STATE, true) !== JSON.stringify(state)) {
       setSessionStorage(CONTEXT_STATE, state);
+    }
   }, [state]);
 
   return (
