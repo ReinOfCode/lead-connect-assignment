@@ -2,7 +2,7 @@ import React from "react";
 import { renderMatches } from "react-router-dom";
 import styles from "styles/Cards.module.scss";
 
-function Card({
+function Cards({
   image = "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
   title = "Nourish rajma dal",
   rating = 3.5,
@@ -43,4 +43,4 @@ function Card({
     </div>
   );
 }
-export default React.memo(Card);
+export default React.memo(Cards);
