@@ -1,4 +1,13 @@
+const date = new Date().getFullYear();
+
 function Footer() {
-  return <h1>Footer</h1>;
+  return (
+    <>
+      <div style={{ textAlign: "center" }}>
+        <h4>{date}</h4>
+      </div>
+    </>
+  );
 }
+
 export default Footer;
