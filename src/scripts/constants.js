@@ -1,4 +1,6 @@
+export const ADD_PRODUCT_TO_CART = "addProductToCart";
 export const CART_PAGE = "/cart-page";
+export const CART_PRODUCT = "cartProduct";
 export const CONTEXT_STATE = "contextState";
 export const DECREMENT_CART_COUNT = "decrementCartCount";
 export const DELETE = "DELETE";
@@ -7,6 +9,4 @@ export const GET = "GET";
 export const INCREASE_CART_COUNT = "incrementCartCount";
 export const LANDING_PAGE = "/";
 export const POST = "POST";
-export const ADD_PRODUCT_TO_CART = "addProductToCart";
 export const REMOVE_PRODUCT_FROM_CART = "removeProductFromCart";
-export const CART_PRODUCT = "cartProduct";

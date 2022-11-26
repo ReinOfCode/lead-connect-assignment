@@ -16,11 +16,9 @@ function BasicLayout({ children }) {
 
   return (
     <>
-      <div className="container">
-        <Header />
-        {children}
-        <Footer />
-      </div>
+      <Header />
+      <div className="container">{children}</div>
+      <Footer />
     </>
   );
 }
