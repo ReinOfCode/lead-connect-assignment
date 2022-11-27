@@ -7,8 +7,6 @@ function CartPage() {
   const { cartProduct } = useUserState();
   const dispatch = useUserDispatch();
 
-  console.log(cartProduct, "cartProduct");
-
   const getTotalPrice = cartProduct.reduce(
     (acc, prev) => acc + prev.price * prev.quantity,
     0

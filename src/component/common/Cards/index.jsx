@@ -12,9 +12,7 @@ function Cards(props) {
   const isProductInCart = cartItems.find((item) => item.id === "id");
   const userDispatch = useUserDispatch();
   const handleAddToCartClick = () => {
-    addProductToCart(userDispatch, { ...props, quantity }).then((res) => {
-      console.log(res);
-    });
+    addProductToCart(userDispatch, { ...props, quantity }).then((res) => {});
   };
 
   return (
