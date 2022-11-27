@@ -39,6 +39,9 @@
         border: 1px solid black;
         outline: none;
         margin: 0 5px;
+        &:disabled {
+          border: none;
+        }
       }
     }
     .card-button {
@@ -47,9 +50,8 @@
       padding: 8px 5px;
       // background-color: red;
       // color: white;
-      border :none;
-outline: none;
-
+      border: none;
+      outline: none;
     }
   }
 }
