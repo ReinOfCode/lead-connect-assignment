@@ -1,12 +1,24 @@
 .card-main {
-  padding: 10px 20px;
+  padding: 0.8rem;
   background-color: white;
   border-radius: 10px;
+  max-width: 250px;
+  max-height: 500px;
+  width: 90%;
+
   .card-image {
-    border-bottom: 1px solid black;
     text-align: center;
+    border-bottom: 1px solid black;
+
+    img {
+      width: 150px;
+      height: 200px;
+      object-fit: contain;
+    }
   }
+
   .card-title {
+
     p {
       text-align: center;
     }

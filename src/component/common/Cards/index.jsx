@@ -23,7 +23,10 @@ function Cards(props) {
         <img width={150} height={250} src={image} alt="random alt text" />
       </div>
       <div className={styles["card-title"]}>
-        <p>{title}</p>
+        <p>
+          {title.substring(0, 20)}
+          {title.length > 20 && <span>...</span>}{" "}
+        </p>
       </div>
       <div className={styles["card-rating-and-amount"]}>
         <div className={styles["product-rating"]}>{rating}</div>

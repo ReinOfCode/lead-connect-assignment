@@ -1,7 +1,6 @@
 .product-main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-evenly;
-  align-items: center;
+    display: grid;
+    gap: 1.5rem;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 }
