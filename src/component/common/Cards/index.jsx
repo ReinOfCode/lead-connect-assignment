@@ -1,15 +1,15 @@
 import { useUserDispatch, useUserState } from "context";
-import { addProductToCart } from "context/actions";
-import React, { useState } from "react";
+import { addProductToCart, removeProductFromCart } from "context/actions";
+import React, { useEffect, useState } from "react";
 import { CART_PRODUCT } from "scripts/constants";
 import styles from "styles/Cards.module.scss";
 
 function Cards(props) {
   const userState = useUserState();
   const [quantity, setQuantity] = useState(1);
-  const { image = "", title = "", rating, price } = props;
+  const { image = "", title = "", rating, price, id } = props;
   const cartItems = userState[CART_PRODUCT];
-  const isProductInCart = cartItems.find((item) => item.id === "id");
+  const isProductInCart = cartItems.some((item) => item.id === id);
   const userDispatch = useUserDispatch();
   const handleAddToCartClick = () => {
     addProductToCart(userDispatch, { ...props, quantity }).then((res) => {});
@@ -40,20 +40,34 @@ function Cards(props) {
       <div className={styles["card-product-quantity_cart"]}>
         <div className={styles["card-quantity"]}>
           <button
-            disabled={quantity <= 1}
+            disabled={quantity <= 1 || isProductInCart}
             onClick={() => setQuantity((pre) => pre - 1)}
           >
             -
           </button>
           <span>{quantity}</span>
-          <button onClick={() => setQuantity((pre) => pre + 1)}>+</button>
+          <button
+            disabled={isProductInCart}
+            onClick={() => setQuantity((pre) => pre + 1)}
+          >
+            +
+          </button>
         </div>
-        <button
-          className={styles["card-button"]}
-          onClick={handleAddToCartClick}
-        >
-          ADD TO CART
-        </button>
+        {isProductInCart ? (
+          <button
+            className={styles["card-button"]}
+            onClick={() => removeProductFromCart(userDispatch, props)}
+          >
+            Remove From Cart
+          </button>
+        ) : (
+          <button
+            className={styles["card-button"]}
+            onClick={handleAddToCartClick}
+          >
+            Add To Cart
+          </button>
+        )}
       </div>
     </div>
   );
