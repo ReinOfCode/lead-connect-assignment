@@ -28,8 +28,6 @@
         }
       }
       .price-section {
-        display: flex;
-        justify-content: space-between;
         @media (min-width: 786px) {
           justify-content: space-around;
         }

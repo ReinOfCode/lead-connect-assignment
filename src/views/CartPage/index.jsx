@@ -15,7 +15,7 @@ function CartPage() {
   return isValidArray(cartProduct) ? (
     <div className={styles["cart-main"]}>
       {cartProduct.map((product) => {
-        const { id, title, price, description, category, image } = product;
+        const { id, title, price, description, quantity, image } = product;
         return (
           <div key={id} className={styles["cart-card"]}>
             <div className={styles["product-image"]}>
@@ -25,7 +25,9 @@ function CartPage() {
               <h2>{title}</h2>
               <h5>{description}</h5>
               <div className={styles["price-section"]}>
-                <h3>Price : {price}</h3>
+                <span>
+                  Price : ₹{price} * {quantity} =<b> ₹{price * quantity}</b>
+                </span>
                 <p
                   onClick={() => {
                     removeProductFromCart(dispatch, product);
