@@ -13,35 +13,35 @@ function LandingPage() {
     });
   }, []);
 
-  return (
-    isValidArray(productData) && (
-      <div className={styles["product-main"]}>
-        {productData.map((data) => {
-          const {
-            id,
-            title,
-            price,
-            description,
-            category,
-            image,
-            rating: { rate, count },
-          } = data;
-          return (
-            <Fragment key={id}>
-              <Cards
-                image={image}
-                title={title}
-                price={price}
-                rating={rate}
-                description={description}
-                category={category}
-                id={id}
-              />
-            </Fragment>
-          );
-        })}
-      </div>
-    )
+  return isValidArray(productData) ? (
+    <div className={styles["product-main"]}>
+      {productData.map((data) => {
+        const {
+          id,
+          title,
+          price,
+          description,
+          category,
+          image,
+          rating: { rate, count },
+        } = data;
+        return (
+          <Fragment key={id}>
+            <Cards
+              image={image}
+              title={title}
+              price={price}
+              rating={rate}
+              description={description}
+              category={category}
+              id={id}
+            />
+          </Fragment>
+        );
+      })}
+    </div>
+  ) : (
+    <h1>Loading...</h1>
   );
 }
 

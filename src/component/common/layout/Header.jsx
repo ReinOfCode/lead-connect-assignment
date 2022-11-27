@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
-  console.log(CART_PAGE, LANDING_PAGE);
-
   const userState = useUserState();
   return (
     <div className={styles["header-main"]}>
