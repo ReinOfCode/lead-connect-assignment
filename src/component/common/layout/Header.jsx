@@ -2,17 +2,19 @@
 import { useUserState } from "context";
 import styles from "styles/Header.module.scss";
 import { CART_PAGE, CART_PRODUCT, LANDING_PAGE } from "scripts/constants";
+import { useNavigate } from "react-router-dom";
 // userState[CART_PRODUCT].length
 
 function Header() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  console.log(CART_PAGE, LANDING_PAGE);
 
   const userState = useUserState();
   return (
     <div className={styles["header-main"]}>
       <h2
         onClick={() => {
-          // navigate(LANDING_PAGE);
+          navigate(LANDING_PAGE);
         }}
         className={styles["brand-name"]}
       >
@@ -21,7 +23,7 @@ function Header() {
       <div className={styles["cart-div"]}>
         <button
           onClick={() => {
-            // navigate(CART_PAGE);
+            navigate(CART_PAGE);
           }}
         >
           <svg

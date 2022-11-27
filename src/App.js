@@ -8,14 +8,14 @@ import LandingPage from "views/LandingPage";
 function App() {
   return (
     <UserProvider>
-      <BasicLayout>
-        <BrowserRouter>
+      <BrowserRouter>
+        <BasicLayout>
           <Routes>
             <Route path={LANDING_PAGE} element={<LandingPage />}></Route>
             <Route path={CART_PAGE} element={<CartPage />}></Route>
           </Routes>
-        </BrowserRouter>
-      </BasicLayout>
+        </BasicLayout>
+      </BrowserRouter>
     </UserProvider>
   );
 }
