@@ -7,7 +7,12 @@ function CartPage() {
   const { cartProduct } = useUserState();
   const dispatch = useUserDispatch();
 
-  const getTotalPrice = cartProduct.reduce((acc, prev) => acc + prev.price, 0);
+  console.log(cartProduct, "cartProduct");
+
+  const getTotalPrice = cartProduct.reduce(
+    (acc, prev) => acc + prev.price * prev.quantity,
+    0
+  );
 
   return isValidArray(cartProduct) ? (
     <div className={styles["cart-main"]}>
